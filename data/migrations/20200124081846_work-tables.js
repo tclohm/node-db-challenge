@@ -7,6 +7,7 @@ exports.up = function(knex) {
 
             tbl.string("name", 255)
                 .notNullable()
+                .unique()
                 .index();
 
             tbl.string("description", 255);
