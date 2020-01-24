@@ -7,6 +7,10 @@ const server = express();
 
 server.use(helmet());
 server.use(express.json());
-server.use('/api/projects', ProjectsRouter);
+server.use('/api/work', ProjectsRouter);
+
+server.get('/', (req, res) => {
+	res.send('<h1>Hello World</h1>');
+});
 
 module.exports = server;

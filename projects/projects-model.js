@@ -17,13 +17,8 @@ module.exports = {
 };
 
 function addResources(data) {
-	if(data.length > 1) {
-		return data.map(resource => {
-			return db('resources').insert(resource);
-		});
-	} else {
-		return db('resources').insert(data);
-	}
+	return db('resources').insert(data);
+
 }
 
 function getResources() {
@@ -31,13 +26,7 @@ function getResources() {
 }
 
 function addProjects(data) {
-	if(data.length > 1) {
-		return data.map(project => {
-			return db('projects').insert(project);
-		});
-	} else {
-		return db('projects').insert(data);
-	}
+	return db('projects').insert(data);
 }
 
 function getProjects() {
@@ -45,18 +34,12 @@ function getProjects() {
 }
 
 function addTasks(data) {
-	if(data.length > 1) {
-		return data.map(task => {
-			return db('tasks').insert(task);
-		});
-	} else {
-		return db('tasks').insert(task);
-	}
+	return db('tasks').insert(data);
 }
 
 function getTasks() {
 	return db('tasks')
 	.join('projects', 'tasks.project_id', 'projects.id')
-	.select('project.name', 'project.description', 'tasks.description', 'tasks.notes', 'tasks.completed');
+	.select('projects.name as project_name', 'projects.description as project_description', 'tasks.description', 'tasks.notes', 'tasks.completed');
 
 }
