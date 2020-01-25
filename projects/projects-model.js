@@ -81,16 +81,4 @@ function getProjectById(id) {
 						})
 				})
 		})
-	if(id) {
-		return db('resources-projects as rp')
-			.leftJoin('resources as r', 'r.id', 'rp.resource_id')
-			.leftJoin('projects as p', 'rp.project_id', 'p.id')
-			.where('rp.id', id)
-			.select('p.id', 'p.name as name', 'p.description', 'p.completed', 'r.id as resources');
-	}
-	return null
-}
-
-function getProjectByIdentifer(project_id) {
-	return db()
 }
