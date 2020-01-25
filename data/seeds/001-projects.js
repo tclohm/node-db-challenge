@@ -7,7 +7,7 @@ exports.seed = function(knex) {
       return knex('projects').insert([
         { 
           name: "The Miller Project", 
-          description: "Beer distrubutor wants an advertisement", 
+          description: "Beer distributor wants an advertisement", 
           completed: false,
         },
         { 
